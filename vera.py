@@ -78,6 +78,7 @@ while 1 > 0:
         sqlmap()
 
     elif choice == 4:
+        print("exit is success")
         break
 
     else:
