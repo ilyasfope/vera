@@ -9,7 +9,8 @@ BY = Natso Code
 [1]- use feroxbuster
 [2]- use subfinder
 [3]- use sqlmap
-[4]- exit
+[4]- use nikto
+[5]- exit
 
 """
 # for check input
@@ -62,6 +63,16 @@ while 1 > 0:
 
         system(f"sqlmap -u {url} --banner --batch")
 
+# for nikto tool
+
+    def nikto():
+
+        url = url_input()
+
+        check_input(url)
+
+        system("nikto -h {}".format(url))
+
 # for condition
 
     if choice == 1:
@@ -78,11 +89,19 @@ while 1 > 0:
         sqlmap()
 
     elif choice == 4:
+
+        nikto()
+
+    elif choice == 5:
+
         print("exit is success")
+
         break
 
     else:
+
         print("error try again")
+
         break
 
 
