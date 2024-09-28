@@ -1,33 +1,48 @@
 from os import system
+from colorama import * # type: ignore
+
+init()
 
 # my text
 
-text_login = """
+green = Fore.GREEN
+red = Fore.LIGHTRED_EX
+reset = Style.RESET_ALL
 
-BY = Natso Code
 
-[1]- use feroxbuster
-[2]- use subfinder
-[3]- use sqlmap
-[4]- use nikto
-[5]- exit
+text_login = f"""
+
+{Fore.LIGHTCYAN_EX}BY = Natso Code
+
+you must download these tools on your device.
+
+{green}[1]- feroxbuster: {reset}find hidden paths folders and files in the site.
+{green}[2]- subfinder: {reset}helps detect subdomains on the site.
+{green}[3]- sqlmap: {reset}sql injection vulnerability scanning.
+{green}[4]- nikto: {reset}site vulnerability scanning.
+{green}[5]- whois: {reset}get information about the site.
+{green}[6]- exit: {reset}in order to exit the program.
 
 """
 # for check input
 
 def check_input(input):
+
     if input == "" or input.strip() == False or input.isdigit():
-        print("sorry write something appropriate")
+
+        print(red + "sorry write something appropriate")
     
 # for input url
 
 def url_input():
-    return input("please enter url for testing : ")
+
+    return input("please write the site you want to check : ")
 
 while 1 > 0:
+
     print(text_login)
 
-    choice = int(input("please choice a number : "))
+    choice = int(input("choose a number to get started ==> "))
 
 # for feroxbuster tool
 
@@ -73,6 +88,16 @@ while 1 > 0:
 
         system("nikto -h {}".format(url))
 
+# for whois
+
+    def whois():
+
+        url = url_input()
+
+        check_input(url)
+
+        system(f"whois {url}")
+
 # for condition
 
     if choice == 1:
@@ -94,13 +119,17 @@ while 1 > 0:
 
     elif choice == 5:
 
-        print("exit is success")
+        whois()
+
+    elif choice == 6:
+
+        print(Fore.LIGHTGREEN_EX + "successfully exited")
 
         break
 
     else:
 
-        print("error try again")
+        print(Fore.RED + "there is an error in the program,try again.")
 
         break
 
