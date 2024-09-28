@@ -50,7 +50,7 @@ while 1 > 0:
 
         url = url_input()
 
-        word_list = input("please enter your word list : ")
+        word_list = input("please the path of the file you want to scan : ")
 
         check_input(url)
 
@@ -121,9 +121,10 @@ while 1 > 0:
 
         whois()
 
+
     elif choice == 6:
 
-        print(Fore.LIGHTGREEN_EX + "successfully exited")
+        print(Fore.LIGHTGREEN_EX + "successfully exited...")
 
         break
 
