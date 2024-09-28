@@ -12,6 +12,16 @@ BY = Natso Code
 [4]- exit
 
 """
+# for check input
+
+def check_input(input):
+    if input == "" or input.strip() == False or input.isdigit():
+        print("sorry write something appropriate")
+    
+# for input url
+
+def url_input():
+    return input("please enter url for testing : ")
 
 while 1 > 0:
     print(text_login)
@@ -22,9 +32,13 @@ while 1 > 0:
 
     def feroxbuster():
 
-        url = input("please enter url for testing : ")
+        url = url_input()
 
         word_list = input("please enter your word list : ")
+
+        check_input(url)
+
+        check_input(word_list)
 
         system("feroxbuster -u {} -w {}".format(url,word_list))
 
@@ -32,7 +46,9 @@ while 1 > 0:
 
     def subfinder():
 
-        url = input("please enter url for testing : ")
+        url = url_input()
+
+        check_input(url)
 
         system("subfinder -d {}".format(url))
 
@@ -40,7 +56,9 @@ while 1 > 0:
 
     def sqlmap():
 
-        url = input("please enter url for testing : ")
+        url = url_input()
+
+        check_input(url)
 
         system(f"sqlmap -u {url} --banner --batch")
 
@@ -49,6 +67,7 @@ while 1 > 0:
     if choice == 1:
 
         feroxbuster()
+    
 
     elif choice == 2:
 
